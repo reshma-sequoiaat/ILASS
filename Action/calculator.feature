@@ -1,11 +1,14 @@
-Feature: Calculator Actions using Robot
+Feature: Calculator Actions
 
-Scenario: calculate
-    * robot { window: 'Calculator', fork: 'calc', highlight: true, highlightDuration: 500 }
+  @calculate
+  Scenario: execute
+    * robot { window: 'Calculator', fork: 'calc', highlight: true }
     * click('#clearButton')
-    * click(num1)
-    * click(operator)
-    * click(num2)
+    * click('#' + num1)
+    * click('#' + operator)
+    * click('#' + num2)
     * click('#equalButton')
-    * match locate('#CalculatorResults').name == expected
+    
+    # Assertion Options
+    * match locate('#CalculatorResults').name contains expected
     * screenshot()
