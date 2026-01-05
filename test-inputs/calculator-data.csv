@@ -1,0 +1,5 @@
+First,Operator,Second,Expected
+num5Button,plusButton,num2Button,7
+num5Button,minusButton,num2Button,Display is 3
+num5Button,multiplyButton,num2Button,Display is 10
+num8Button,divideButton,num2Button,4
