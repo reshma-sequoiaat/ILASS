@@ -1,7 +1,5 @@
 Feature: Run Automation
 
-Scenario Outline: Verify All Calculator Operations
+Scenario: Verify All Calculator Operations
+  * call read('../Action/input-data.feature@calculator')
   * call read('../Action/calculator.feature')
-
-Examples:
-  | read('../Action/calculator-data.csv') |
