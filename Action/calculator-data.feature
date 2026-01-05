@@ -1,18 +1,15 @@
-@ignore
-Feature: Calculator Test Data Repository
+Feature: Calculator operations using single scenario and table
 
-  @data_addition
-  Scenario: 
-    * def data = { num1: 'num5Button', operator: 'plusButton', num2: 'num2Button', expected: '7' }
+Scenario: Perform calculator operations using table driven inputs
+  * def testData =
+    | numButton   | operatorButton | num2Button | expected |
+    | num5Button  | plusButton     | num2Button | 7        |
+    | num5Button  | minusButton    | num2Button | Display is 3 |
+    | num5Button  | multiplyButton | num2Button | Display is 10 |
+    | num8Button  | divideButton   | num2Button | 4        |
 
-  @data_subtraction
-  Scenario: 
-    * def data = { num1: 'num5Button', operator: 'minusButton', num2: 'num2Button', expected: 'Display is 3' }
+  * def calculator = call read('calculator.feature')
 
-  @data_multiplication
-  Scenario: 
-    * def data = { num1: 'num5Button', operator: 'multiplyButton', num2: 'num2Button', expected: 'Display is 10' }
-
-  @data_division
-  Scenario: 
-    * def data = { num1: 'num8Button', operator: 'divideButton', num2: 'num2Button', expected: '4' }
+  * karate.forEach(testData, function(row){
+      karate.call('calculator.feature', row)
+    })
