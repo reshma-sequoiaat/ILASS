@@ -1,5 +1,4 @@
 Feature: Product Table Operations
-
   
 Scenario: Find lowest discount and highest price
     * def lowestDiscountProduct = Products.sort((a, b) => a.Discount - b.Discount)[0]
