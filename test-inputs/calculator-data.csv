@@ -1,4 +1,4 @@
-num1,operator,num2,expected
+First,Operator,Second,Expected
 num5Button,plusButton,num2Button,7
 num5Button,minusButton,num2Button,Display is 3
 num5Button,multiplyButton,num2Button,Display is 10

@@ -1,14 +1,18 @@
 Feature: Calculator Actions
 
-  @calculate
-  Scenario: execute
+@setup
+Scenario: Setup Calculator
+  * def inputs = testData
+Scenario Outline: execute
     * robot { window: 'Calculator', fork: 'calc', highlight: true }
     * click('#clearButton')
-    * click('#' + num1)
-    * click('#' + operator)
-    * click('#' + num2)
+    * click('#'+ First)
+    * click('#' + Operator)
+    * click('#' + Second)
     * click('#equalButton')
-    
-    # Assertion Options
-    * match locate('#CalculatorResults').name contains expected
+
+    * match locate('#CalculatorResults').name contains Expected
     * screenshot()
+  
+  Examples:
+    | karate.setup().inputs |
