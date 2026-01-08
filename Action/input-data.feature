@@ -31,4 +31,20 @@ Feature: Calculator operations using single scenario and table
       | 'Ashik'  | 105 | 30000 | 'Analyst'            | 'Mumbai'     | 'Finance'  |
       | 'Sufail' | 106 | 22000 | 'HR Executive'       | 'Delhi'      | 'HR'       |
 
-
+      @arraydep
+  Scenario: Department array data
+    * def departments =
+    """
+    [
+      'HR',
+      'IT',
+      'QA',
+      'Finance',
+      'Admin',
+      'Support',
+      'Sales',
+      'Marketing',
+      'Legal',
+      'Operations'
+    ]
+    """
