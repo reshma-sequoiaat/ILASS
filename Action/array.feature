@@ -2,7 +2,6 @@ Feature: Verify Array Operations
 
 Scenario: Perform department array operations
 
-  * def departments = departments
   * def originalCount = departments.length
   * print 'Original count:', originalCount
   * print '4th index department:', departments[4]
