@@ -12,6 +12,5 @@ Feature: Notepad Automation using Karate Robot
     * robot.input('C:\\ILASS-AT\\ILASS\\test-inputs\\automation_note.txt')
     * robot.click('Save')
     * robot.delay(1000)
-
     * robot.window('^Notepad')
     * robot.input(Key.ALT + Key.F4)
