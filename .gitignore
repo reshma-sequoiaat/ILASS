@@ -1,0 +1,6 @@
+# Build output
+target/
+
+# Karate jars
+karate.jar
+karate-robot.jar
