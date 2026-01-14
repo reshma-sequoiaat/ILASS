@@ -1,10 +1,10 @@
 # Manipulate configuration file before running automation******************
 
-# Feature: Run Automation
+Feature: Run Automation
 
-#   Scenario: Run config file
-#     * def XML = read('../test-inputs/test-config.xml')
-#     * call read('../Action/configfile.feature')
+  Scenario: Run config file
+    * def XML = read('../test-inputs/test-config.xml')
+    * call read('../Action/configfile.feature')
 
 # Update XML config file***********************************************
 Feature: Automation run with config update
