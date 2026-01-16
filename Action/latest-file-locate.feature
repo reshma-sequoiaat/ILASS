@@ -1,14 +1,14 @@
-Feature: Find latest file 
-  Scenario: Locate latest file in a folder
-      * def folderPath = 'C:/ILASS-AT/ILASS/test-inputs'
-      * def File = Java.type('java.io.File')
-      * def dir = new File(folderPath)
-      * def files = dir.listFiles()
-      * def Collections = Java.type('java.util.Collections')
-      * def Comparator = Java.type('java.util.Comparator')
-      * eval Collections.sort(files, Comparator.comparingLong(function(f){ return f.lastModified() }).reversed())
-      * def latestFile = files[0].getName()
-      * print 'The latest file found is:', latestFile
+# Feature: Find latest file 
+#   Scenario: Locate latest file in a folder
+#       * def folderPath = 'C:/ILASS-AT/ILASS/test-inputs'
+#       * def File = Java.type('java.io.File')
+#       * def dir = new File(folderPath)
+#       * def files = dir.listFiles()
+#       * def Collections = Java.type('java.util.Collections')
+#       * def Comparator = Java.type('java.util.Comparator')
+#       * eval Collections.sort(files, Comparator.comparingLong(function(f){ return f.lastModified() }).reversed())
+#       * def latestFile = files[0].getName()
+#       * print 'The latest file found is:', latestFile
 
 #*****************************************************************************************************************************
     Feature: Locate and search latest file
