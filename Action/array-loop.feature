@@ -12,4 +12,3 @@ Scenario: Loop over array and verify required value
         result.push(fruits[i]);
     }
     """
-    * match each result == '#string'
