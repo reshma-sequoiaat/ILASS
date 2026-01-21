@@ -1,24 +1,81 @@
-Feature: Utility for JS Matching
+# Feature: JavaScript Functions with karate.match
 
-  Scenario: Define Match Utility
-    * def validator =
+# Scenario: Define Functions
+  
+#   # ❌ WRONG WAY - False Positive
+#   * def wrongCompare = 
+#   """
+#   function(arr1, arr2) {
+#     karate.match(arr1, arr2);
+#     return true;  // Always returns true!
+#   }
+#   """
+  
+#   # ✅ CORRECT WAY - Using .pass
+#   * def correctCompare = 
+#   """
+#   function(arr1, arr2) {
+#     var isMatch = karate.match(arr1, arr2).pass;
+#     return isMatch;
+#   }
+#   """
+  
+#   # ✅ Compare element by element and return boolean array
+#   * def compareElements = 
+#   """
+#   function(arr1, arr2) {
+#     var results = [];
+#     for (var i = 0; i < arr1.length; i++) {
+#       var isMatch = karate.match(arr1[i], arr2[i]).pass;
+#       results.push(isMatch);
+#     }
+#     return results;
+#   }
+#   """
+
+
+Feature: Utility for Array Comparison with JS Match
+
+  Scenario: Define Array Comparison Functions
+  
+    * def buggyArrayCompare =
       """
-      function(actual, expected) {
-        var matchResult = karate.match(actual, expected);
-        var isMatch = matchResult.pass; 
-    
+      function(arr1, arr2) {
+        var result = karate.match(arr1, arr2);
+        return result;
+      }
+      """
+
+    * def correctArrayCompare =
+      """
+      function(arr1, arr2) {
+        var matchResult = karate.match(arr1, arr2);
+        var isMatch = matchResult.pass;
+        
         if (!isMatch) {
-          karate.log('Match Failed! Details: ' + matchResult.message);
+          karate.log('Arrays do not match! Details: ' + matchResult.message);
         }
         
         return isMatch;
       }
       """
 
-    * def buggyValidator =
+    * def compareElementByElement =
       """
-      function(actual, expected) {
-        var result = karate.match(actual, expected);
-        return result; 
+      function(arr1, arr2) {
+        var booleanResultsArray = [];
+        
+        for (var i = 0; i < arr1.length; i++) {
+          var matchResult = karate.match(arr1[i], arr2[i]);
+          var isMatch = matchResult.pass;
+          
+          booleanResultsArray.push(isMatch);
+          
+          if (!isMatch) {
+            karate.log('Mismatch at index ' + i + ': ' + arr1[i] + ' vs ' + arr2[i]);
+          }
+        }
+        
+        return booleanResultsArray;
       }
       """
