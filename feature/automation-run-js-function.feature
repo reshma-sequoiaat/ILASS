@@ -41,11 +41,6 @@ Feature: Automation Run Karate JS Function for Array Comparison
     * def booleanResults = compareElementByElement(array1, array2)
     * print 'Boolean Results Array:', booleanResults
     * match booleanResults == [true, false, true, false, true]
-    * match booleanResults[0] == true
-    * match booleanResults[1] == false
-    * match booleanResults[2] == true
-    * match booleanResults[3] == false
-    * match booleanResults[4] == true
     * karate.set('comparisonResults', booleanResults)
     * karate.set('overallMatch', isArrayMatch)
     * def storedResults = karate.get('comparisonResults')
