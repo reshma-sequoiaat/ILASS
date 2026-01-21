@@ -1,11 +1,10 @@
-@ignore
 Feature: XML Data Processing
 
-Scenario: Process and Print XML Data
+  Scenario: Process and Print XML Data
 
-    Given url "https://sample-files.com/downloads/data/xml/complex-nested.xml"
-    When method get
-    Then status 200
+    * url 'https://sample-files.com/downloads/data/xml/complex-nested.xml'
+    * method get
+    * status 200
     * def xmlFile = response
     * def books = get xmlFile //book
     * def bookCount = karate.sizeOf(books)
