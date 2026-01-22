@@ -2,7 +2,6 @@
 Feature: Open Chrome and Search
 
     Scenario: Launch New Chrome Instance and Search
-      #* robot { window: '^Google Chrome', fork: 'C:/Program Files/Google/Chrome/Application/chrome.exe', highlight: true }
       * robot chromeRobot
       * window('^Google Chrome')
       * focus('^Google Chrome')
@@ -16,7 +15,6 @@ Feature: Open Chrome and Search
 # Open chrome and navigate to upload page
   Feature: Open Chrome and Search
       Scenario: Launch New Chrome Instance and Search
-        *# robot { window: '^Google Chrome', fork: 'C:/Program Files/Google/Chrome/Application/chrome.exe', highlight: true }
         * robot chromeRobot
         * window('^Google Chrome')
         * focus('^Google Chrome')
@@ -31,8 +29,6 @@ Feature: Open Chrome and Search
   Feature: Chrome File Upload via Robot
 
   Scenario: Upload a PDF from Downloads
-    # 1. Your existing working code to open and navigate
-    #* robot { window: '^Google Chrome', fork: 'C:/Program Files/Google/Chrome/Application/chrome.exe', highlight: true }
     * robot chromeRobot
     * window('^Google Chrome')
     * focus('^Google Chrome')
