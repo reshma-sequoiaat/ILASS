@@ -3,7 +3,6 @@ Feature: Validate Cat Breeds API
 Background:
   * url catBreedsUrl
 
-
 Scenario: Get list of cat breeds - basic validations
   * method get
   * status 200
