@@ -27,30 +27,24 @@
 
 Feature: Automation Run Karate JS Function for Array Comparison
 
-  Scenario: Run Array Comparison Functions in automation flow
-    * call read('../Action/karate-js-function.feature')
-    * def array1 = [10, 20, 30, 40, 50]
-    * def array2 = [10, 99, 30, 88, 50]
-    
-    * def buggyResult = buggyArrayCompare(array1, array2)
-    * print 'Buggy Result Object:', buggyResult
-    * def isArrayMatch = correctArrayCompare(array1, array2)
-    * print 'Correct Boolean Result:', isArrayMatch
-    * match isArrayMatch == false
+Scenario: Run Array Comparison Functions in automation flow
+  * call read('../Action/karate-js-function.feature')
 
-    * def booleanResults = compareElementByElement(array1, array2)
-    * print 'Boolean Results Array:', booleanResults
-    * match booleanResults == [true, false, true, false, true]
-    * karate.set('comparisonResults', booleanResults)
-    * karate.set('overallMatch', isArrayMatch)
-    * def storedResults = karate.get('comparisonResults')
-    * def storedMatch = karate.get('overallMatch')
-    * print 'Retrieved Results:', storedResults
-    * print 'Retrieved Overall Match:', storedMatch
-    * def matchCount = 0
-    * def mismatchCount = 0
-    * eval for(var i=0; i<booleanResults.length; i++) { if(booleanResults[i]) matchCount++; else mismatchCount++; }
-    * print 'Total Matches:', matchCount
-    * print 'Total Mismatches:', mismatchCount
-    * match matchCount == 3
-    * match mismatchCount == 2
+  * def array1 = [10, 20, 30, 40, 50]
+  * def array2 = [10, 99, 30, 88, 50]
+
+  * def buggyResult = buggyArrayCompare(array1, array2)
+  * print 'Buggy Result Object:', buggyResult
+
+  * def analysis = analyzeArrayComparison(array1, array2)
+
+  * print 'Boolean Results Array:', analysis.booleanResults
+  * print 'Overall Match:', analysis.overallMatch
+  * print 'Total Matches:', analysis.matchCount
+  * print 'Total Mismatches:', analysis.mismatchCount
+
+  * match analysis.booleanResults == [true, false, true, false, true]
+  * match analysis.overallMatch == false
+  * match analysis.matchCount == 3
+  * match analysis.mismatchCount == 2
+
