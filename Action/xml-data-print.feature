@@ -1,10 +1,11 @@
 Feature: XML Data Processing
 
-  Scenario: Process and Print XML Data
+Scenario: Process and Print XML Data
 
-    * url 'https://sample-files.com/downloads/data/xml/complex-nested.xml'
+    * url xmlDataUrl
     * method get
     * status 200
+
     * def xmlFile = response
     * def books = get xmlFile //book
     * def bookCount = karate.sizeOf(books)
@@ -17,13 +18,13 @@ Feature: XML Data Processing
         var firstName = karate.xmlPath(book, "//author/name/first");
         var lastName = karate.xmlPath(book, "//author/name/last");
         var publisher = karate.xmlPath(book, "//publisher/name");
-        
+
         var fullName = firstName + " " + lastName;
-        
+
         karate.log('Book #' + (i + 1) + ': ' + title);
         karate.log('Author: ' + fullName);
         karate.log('Publisher: ' + publisher);
     }
     """
-    
+
     * karate.forEach(books, processor)
