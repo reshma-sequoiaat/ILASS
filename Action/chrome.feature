@@ -42,7 +42,7 @@ Feature: Open Chrome and Search
 
     # Windows "Open" dialog
     * window('Open')
-    * input('C:\\Users\\SAT-00\\Downloads\\sample.pdf')
+    * input(testInputsPath + '/sample.pdf')
     * input(Key.ENTER)
     * delay(2000)
 

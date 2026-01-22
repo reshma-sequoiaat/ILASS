@@ -1,7 +1,6 @@
 Feature: Employee Data Manipulation
 
   Scenario Outline: Process Row
-    # Karate automatically maps CSV column headers to variable names
     * print '--- Manipulating Data for:', name, '---'
     * def taxAmount = salary * 0.10
     * def netSalary = salary - taxAmount

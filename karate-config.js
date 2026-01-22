@@ -9,6 +9,7 @@ function fn() {
     fork: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
     highlight: true
   };
+  config.testInputsPath = 'C:/ILASS-AT/ILASS/test-inputs';
 
   return config;
 }
