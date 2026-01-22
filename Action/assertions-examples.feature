@@ -1,7 +1,7 @@
 Feature: Validate Cat Breeds API
 
 Background:
-  * url 'https://catfact.ninja/breeds'
+  * url catBreedsUrl
 
 
 Scenario: Get list of cat breeds - basic validations

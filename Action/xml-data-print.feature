@@ -7,7 +7,7 @@ Scenario: Process and Print XML Data
     * status 200
 
     * def xmlFile = response
-    * def books = get xmlFile //book
+    * def books = get xmlFile 
     * def bookCount = karate.sizeOf(books)
     * print 'TOTAL BOOKS FOUND:', bookCount
 

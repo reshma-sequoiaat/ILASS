@@ -8,7 +8,6 @@ Feature: Notepad Automation using Karate Robot
     * robot.input(Key.CONTROL + Key.SHIFT + 's')
     * robot.window('^Save as')
     * robot.delay(1000)
-    # * robot.input('automation_note') # save file deafult path
     * robot.input('C:\\ILASS-AT\\ILASS\\test-inputs\\automation_note.txt')
     * robot.click('Save')
     * robot.delay(1000)
