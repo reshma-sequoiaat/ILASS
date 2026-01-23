@@ -1,6 +1,6 @@
 # Feature: Find latest file 
 #   Scenario: Locate latest file in a folder
-#       * def folderPath = 'C:/ILASS-AT/ILASS/test-inputs'
+#       * def folderPath = testInputsPath
 #       * def File = Java.type('java.io.File')
 #       * def dir = new File(folderPath)
 #       * def files = dir.listFiles()
@@ -15,7 +15,7 @@
 
     Scenario: Find latest txt file in test-inputs and search for text
 
-      * def folderPath = 'C:/ILASS-AT/ILASS/test-inputs'
+      * def folderPath = testInputsPath
       * def searchWord = 'Process run successfully'
       * def File = Java.type('java.io.File')
       * def dir = new File(folderPath)

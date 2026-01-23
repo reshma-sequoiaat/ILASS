@@ -1,40 +1,6 @@
-# Feature: JavaScript Functions with karate.match
-
-# Scenario: Define Functions
-  
-
-#   * def wrongCompare = 
-#   """
-#   function(arr1, arr2) {
-#     karate.match(arr1, arr2);
-#     return true;  // Always returns true!
-#   }
-#   """
-  #* def correctCompare =  
-#   """
-#   function(arr1, arr2) {
-#     var isMatch = karate.match(arr1, arr2).pass;
-#     return isMatch;
-#   }
-#   """
-  
-#   * def compareElements = 
-#   """
-#   function(arr1, arr2) {
-#     var results = [];
-#     for (var i = 0; i < arr1.length; i++) {
-#       var isMatch = karate.match(arr1[i], arr2[i]).pass;
-#       results.push(isMatch);
-#     }
-#     return results;
-#   }
-#   """
-
-
 Feature: Utility for Array Comparison with JS Match
 
 Scenario: Define Array Comparison Functions
-
   * def buggyArrayCompare =
     """
     function(arr1, arr2) {
@@ -80,20 +46,15 @@ Scenario: Define Array Comparison Functions
   * def analyzeArrayComparison =
     """
     function(arr1, arr2) {
-
       var booleanResults = compareElementByElement(arr1, arr2);
       var overallMatch = correctArrayCompare(arr1, arr2);
 
       var matchCount = 0;
       var mismatchCount = 0;
-
       for (var i = 0; i < booleanResults.length; i++) {
         if (booleanResults[i]) matchCount++;
         else mismatchCount++;
       }
-
-      karate.set('comparisonResults', booleanResults);
-      karate.set('overallMatch', overallMatch);
 
       return {
         booleanResults: booleanResults,
@@ -103,3 +64,22 @@ Scenario: Define Array Comparison Functions
       };
     }
     """
+
+Scenario: Run Array Comparison Functions in automation flow
+  * def array1 = [10, 20, 30, 40, 50]
+  * def array2 = [10, 99, 30, 88, 50]
+
+  * def buggyResult = buggyArrayCompare(array1, array2)
+  * print 'Buggy Result Object:', buggyResult
+
+  * def analysis = analyzeArrayComparison(array1, array2)
+
+  * print 'Boolean Results Array:', analysis.booleanResults
+  * print 'Overall Match:', analysis.overallMatch
+  * print 'Total Matches:', analysis.matchCount
+  * print 'Total Mismatches:', analysis.mismatchCount
+
+  * match analysis.booleanResults == [true, false, true, false, true]
+  * match analysis.overallMatch == false
+  * match analysis.matchCount == 3
+  * match analysis.mismatchCount == 2
