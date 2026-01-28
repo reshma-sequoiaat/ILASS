@@ -3,7 +3,7 @@ Feature: Upload file using own HTML page
 Scenario: User uploads a file using custom HTML page
     * configure driver = { type: 'chrome' }
 
-    * def html = karate.toAbsolutePath('classpath:resources/upload.html')
+    * def html = karate.toAbsolutePath(resourcePath + '/upload.html')
     * driver 'file:' + html
     * waitFor('#fileInput').input(Key.ENTER).click()
     * delay(2000)
