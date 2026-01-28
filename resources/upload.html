@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>File Upload Page</title>
 </head>
+
 <body>
     <h2>Upload File</h2>
 
@@ -15,10 +17,17 @@
     <p id="status"></p>
 
     <script>
-        document.getElementById("uploadForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-            document.getElementById("status").innerText = "File selected successfully";
-        });
-    </script>
+document.getElementById("uploadForm").addEventListener("submit", function(e) {
+    e.preventDefault(); 
+    const fileInput = document.getElementById("fileInput");
+    if (fileInput.files.length > 0) {
+        document.getElementById("status").innerText =
+          "Uploaded: " + fileInput.files[0].name;
+    }
+});
+</script>
+
+
 </body>
+
 </html>
