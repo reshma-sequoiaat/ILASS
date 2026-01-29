@@ -1,8 +1,8 @@
 Feature: Generate Random Phone Number logic
 
 Scenario: Generate and process phone number
-    * def generator = read(resourcePath + '/random-phone.js')
-    * def phoneNumber = generator()
+
+    * def phoneNumber = call read(resourcePath + '/random-phone.js')
     * def envLabel = phoneNumber.contains('555') ? 'TEST-ENV' : 'PROD-ENV'
     * print 'Environment Label:', envLabel
     * def isEven = parseInt(phoneNumber.slice(-1)) % 2 == 0
