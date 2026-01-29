@@ -1,9 +1,7 @@
 # Open Chrome and search any word
 Feature: Open Chrome and Search
   Scenario: Launch New Chrome Instance and Search
-    * robot chromeRobot
-    * window('^Google Chrome')
-    * focus('^Google Chrome')
+    * configure driver = { type: 'chrome' }
     * delay(1000)
     * input(Key.CONTROL + 'l')
     * input('karate guide' + Key.ENTER)
@@ -14,9 +12,7 @@ Feature: Open Chrome and Search
 # Open chrome and navigate to upload page
 Feature: Open Chrome and Search
   Scenario: Launch New Chrome Instance and Search
-    * robot chromeRobot
-    * window('^Google Chrome')
-    * focus('^Google Chrome')
+    * configure driver = { type: 'chrome' }
     * delay(1000)
     * input(Key.CONTROL + 'l')
     * input('https://practice.expandtesting.com/upload' + Key.ENTER)
@@ -45,4 +41,3 @@ Feature: Upload file using web page
     * waitFor('button[type=submit]').click()
     * delay(2000)
     * screenshot()
-
