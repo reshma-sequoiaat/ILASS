@@ -1,5 +1,15 @@
 Feature: Calculator operations using single scenario and table
 
+    @setup
+  Scenario:
+    * def inputs =
+    """
+    [
+      { status: 'available' },
+      { status: 'pending' },
+      { status: 'sold' }
+    ]
+    """
     @calculator
   Scenario: Perform calculator operations using table driven inputs
     * table testData 
