@@ -1,7 +1,7 @@
 Feature: Full API Data Print and Filter 
 
 Background:
-    * url 'https://petstore.swagger.io/v2'
+    * url petstoreUrl
     * configure headers = { Accept: 'application/json', Content-Type: 'application/json' }
 
 Scenario: Get available pets and print

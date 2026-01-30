@@ -3,6 +3,7 @@ function fn() {
 
   config.xmlDataUrl = 'https://sample-files.com/downloads/data/xml/complex-nested.xml';
   config.catBreedsUrl = 'https://catfact.ninja/breeds';
+  config.petstoreUrl = 'https://petstore.swagger.io/v2';
   config.successStatus = 200;
   config.chromeRobot = {
     window: '^Google Chrome',
