@@ -1,6 +1,7 @@
-Feature: Windows Locator Fix
+Feature: Windows Locator 
 
-Scenario: Launch Character Map and print key info
-    * robot { window: 'Character Map', fork: 'charmap.exe' }
-    * click('#108')
+Scenario: Launch Control Panel, screenshot, and close
+
+    * robot { window: '^Control Panel', fork: 'control.exe' }
+    * Locate
     * screenshot()
